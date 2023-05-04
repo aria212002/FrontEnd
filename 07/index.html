@@ -41,23 +41,23 @@
         let result = document.getElementById("result");
 
         account.deposit = function () {
-            if (!isNaN(input.value) && input.value > 0) {
+            if (input.value > 0) {
                 this.balance += Number(input.value);
                 result.innerHTML = `${input.value}원 입금했습니다`;
-                input.value = null;
             }
+            input.value = null;
             input.focus();
         };
         account.withdrawal = function () {
-            if (!isNaN(input.value) && input.value > 0) {
+            if (input.value > 0) {
                 if (this.balance > Number(input.value)) {
                     this.balance -= Number(input.value);
                     result.innerHTML = `${input.value}원 출금했습니다`;
-                    input.value = null;
                 } else {
                     alert("잔액이 부족합니다");
                 }
             }
+            input.value = null;
             input.focus();
         };
         account.select = function () {
